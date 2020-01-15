@@ -40,7 +40,7 @@
 
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
-      
+
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="index.html">
@@ -54,12 +54,12 @@
           <span>行銷管理</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          
+
           <a class="dropdown-item" href="member.html">會員資料查詢</a>
           <a class="dropdown-item" href="rfm.html">RFM分群</a>
           <a class="dropdown-item" href="data.html">各項指標</a>
-         
-    
+
+
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -71,19 +71,19 @@
           <a class="dropdown-item" href="historyrecord.html">查看歷史紀錄</a>
           <a class="dropdown-item" href="material.html">物料需求規劃</a>
           <a class="dropdown-item" href="inventory.html">存貨管理</a>
-          
-         
-    
+
+
+
         </div>
       </li>
     </ul>
 
-  
-  {% comment %} {% block content %}
-    
-    
+
+  <!-- {% block content %}
+
+
     <form action="." method="POST" name="form1">   <!-- "."表示執行相同的url -->
-        {% csrf_token %}     #CSRF防護請加在此
+        <!-- {% csrf_token %}     #CSRF防護請加在此
         <table border="1" cellpadding="1" cellspacing="4">
             <tr>
                 <th>日期</th>
@@ -120,20 +120,20 @@
             </tr>
         </table>
         <span style="color:red">{{message}}</span>
-    </form>    
-   {% endblock %}  
-   {% endcomment %}
+    </form>     -->
+   {% endblock %}   -->
 
-    
+
+
     <div id="content-wrapper">
       <title>新增每日銷量</title>
 
 
 {% block content %}
     <h2>請輸入日期及當日銷量：</h2>
-    
+
     <form action="." method="POST" name="inventory">   <!-- "."表示執行相同的url -->
-        {% csrf_token %}    
+        {% csrf_token %}
         <table border="1" cellpadding="1" cellspacing="4">
             <tr>
                 <th>日期</th>
@@ -169,11 +169,11 @@
             </tr>
         </table>
         <span style="color:red">{{message}}</span>
-    </form>    
+    </form>
 {% endblock %}
 
       <span>目前各原料的剩餘量：</span>
-      
+
       <br>
         <table border="1" cellpadding="1" cellspacing="3">
         <style>
@@ -184,24 +184,24 @@
           tr:nth-child(odd) {
 	          background-color: #FAFAFA;
             }
-         
+
           td:hover {
 	          background-color: #E6FBFF;
             }
           </style>
-        <th>原料編號</th> 
+        <th>原料編號</th>
         <th>原料名稱</th>
         <th>剩餘量（單位：毫升、公克）</th>
         <th>安全庫存（單位：毫升、公克）</th>
-      
-    
-      {% for u in use_list %}    
+
+
+      {% for u in use_list %}
       <tr>
         <td>{{u.m_number}} </td>
         <td>{{u.m_name}}  </td>
         <td>{{u.m_left_amount}}  </td>
         <td>{{u.m_safe_inventory}}  </td>
-         
+
       </tr>
          {% if u.m_left_amount <= u.m_safe_inventory %}
             <span>{{u.m_name}}：<font color="red">該叫貨囉</font></span><br>
@@ -216,7 +216,7 @@
       </div>
 
       <table border="1" cellpadding="1" cellspacing="3">
-      <th>商品編號</th> 
+      <th>商品編號</th>
       <th>名稱</th>
       <th>價格</th>
       <th>紅茶用量（ml）</th>
@@ -224,10 +224,10 @@
       <th>珍珠用量（g）</th>
       <th>芋圓用量（g）</th>
       <th>蜂蜜用量（g）</th>
-    
-      {% for d in drecord_list %}    
+
+      {% for d in drecord_list %}
       <tr>
-        {% comment %} <td>{{d.sell_date}} </td> 
+        {% comment %} <td>{{d.sell_date}} </td>
         <td>{{p.p_id}} </td>
         <td>{{p.p_name}}  </td>
         <td>{{p.price}}  </td>
@@ -240,16 +240,16 @@
       {% endfor %}
     </table> {% endcomment %}
 
-      {% comment %} <form action="." method="POST" name='historyrecord'>   
+      {% comment %} <form action="." method="POST" name='historyrecord'>
        {% csrf_token %}
        {{ form.as_p }}
        <input type="submit" />
       </form>    按鈕{% endcomment %}
-      
-     <!-- 
+
+     <!--
       {% for d in drecord %}
-          
-        
+
+
             <table>
                 <tr>
                     <th>濃厚奶茶</th>
@@ -270,9 +270,9 @@
             </table>
       {% endfor %}-->
 
-       
 
-  
+
+
       <!-- /.container-fluid -->
 
       <!-- Sticky Footer -->
