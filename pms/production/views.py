@@ -84,7 +84,7 @@ class CurrentUseForm(HttpResponseRedirect):
         Matirial.objects.all().filter(m_name='蜂蜜（g）').update(m_left_amount=F('m_left_amount') - used_honey)
 
 
-class AddUseForm(request):
+class AddUseForm(HttpResponseRedirect):
     class Meta:
         model = Matirial
         fields = ['m_number', 'm_name','m_left_amount','m_safe_inventory',]
